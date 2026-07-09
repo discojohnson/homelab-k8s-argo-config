@@ -14,8 +14,18 @@ This repository establishes the stable base upon which all applications will run
 
 This repository is the GitOps control plane for platform services in the homelab cluster.
 
-It contains Argo CD projects, platform Applications, shared namespaces/secrets, and environment overlays for infrastructure components such as networking, certificates, storage, and database operators.
+It contains
+* Argo CD projects
+* Platform Applications
+* Shared namespaces/secrets
+* Environment overlays for infrastructure components such as networking, certificates, storage, and database operators
 
+## GitOps Architecture (4 Repositories)
+
+- [homelab-k8s-argo-config](https://github.com/discojohnson/homelab-k8s-argo-config): Argo CD platform and projects (<-- you are here).
+- [homelab-k8s-base-manifests](https://github.com/discojohnson/homelab-k8s-base-manifests): Chart and template source.
+- [homelab-k8s-environments](https://github.com/discojohnson/homelab-k8s-environments): Version registry values per environment.
+- [homelab-k8s-environments-apps](https://github.com/discojohnson/homelab-k8s-environments-apps): Runtime values and Application definitions.
 
 ## What This Repository Owns
 
