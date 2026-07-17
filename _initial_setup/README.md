@@ -34,12 +34,11 @@ cilium status --wait
 ```bash
 helm repo add argo https://argoproj.github.io/argo-helm
 helm repo update
-kubectl create namespace argocd
-helm install argo-cd argo/argo-cd --version 9.3.4 -n argocd
+helm install argocd argo/argo-cd --namespace argocd --create-namespace
 ```
 
-4. Install the main project
+4. Seed Argo
 
-```
-kubectl create -f /homelab-k8s-argo-config/_initial_setup/project-argo-config.yaml
+```bash
+kubectl create -f /homelab-k8s-argo-config/_initial_setup/argo-config.yaml
 ```
