@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-config
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: '*'
+    namespace: '*'
+    server: https://omni.domain
+  sourceRepos:
+  - https://github.com/discojohnson/homelab-k8s-argo-config
+  - https://github.com/discojohnson/homelab-k8s-base-manifests
+  - https://github.com/discojohnson/homelab-k8s-environments
+  - https://github.com/discojohnson/homelab-k8s-environments-apps
+  - https://argoproj.github.io/argo-helm
+  - https://helm.cilium.io
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+status: {}
